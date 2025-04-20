@@ -51,6 +51,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get maxregneros
+        run: |
+          git clone --depth 1 https://github.com/maxregnerklos/maxregneros.git ../maxregneros
+
       - name: Get Hexa
         run: |
           git clone --depth 1 https://github.com/hexalang/Hexa.git ../Hexa
@@ -79,7 +83,7 @@ jobs:
           cmd.exe /c 'build.bat'
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: greentea-uefi64-image-${{ github.sha }}
           path: C:\Tea\greenteaos-uefi64.iso
